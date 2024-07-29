@@ -1,0 +1,12 @@
+{
+    "name": "crud/php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Pedro Rezende",
+            "email": "Pedro.Rezende14@outlook.com"
+        }
+    ],
+    "require": {
+    }
+}
