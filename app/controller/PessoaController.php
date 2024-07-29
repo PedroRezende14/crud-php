@@ -3,17 +3,20 @@
 require_once '../config/Conexao.php';
 require_once '../models/Pessoa.php';
 
-class PessoaController {
+class PessoaController
+{
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = (new Conexao())->connect();
         if (!$this->conn) {
             throw new Exception('Falha na conexão com o banco de dados.');
         }
     }
 
-    public function inserir(Pessoa $pessoa) {
+    public function inserir(Pessoa $pessoa)
+    {
         $query = 'INSERT INTO pessoa (nome, cpf) VALUES (:nome, :cpf)';
         $stmt = $this->conn->prepare($query);
 
@@ -26,20 +29,22 @@ class PessoaController {
         if ($stmt->execute()) {
             return $this->conn->lastInsertId();
         }
-        return null; 
+        return null;
     }
 
-    public function deletar($id) {
+    public function deletar($id)
+    {
         $query = 'DELETE FROM pessoa WHERE id = :id';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
         if ($stmt->execute()) {
         }
-        return null; 
+        return null;
     }
 
-    public function atualizar(Pessoa $pessoa) {
-    
+    public function atualizar(Pessoa $pessoa)
+    {
+
         if ($pessoa->getId() <= 0 || empty($pessoa->getNome()) || empty($pessoa->getCpf())) {
             return "Dados inválidos para atualização.";
         }
@@ -62,7 +67,8 @@ class PessoaController {
         }
     }
 
-    public function pesquisar($tipo, $valor) {
+    public function pesquisar($tipo, $valor)
+    {
         if ($tipo == 'id') {
             return $this->pesquisarPorId($valor);
         } else if ($tipo == 'nome') {
@@ -73,18 +79,20 @@ class PessoaController {
         return [];
     }
 
-    public function pesquisarTodos() {
+    public function pesquisarTodos()
+    {
         $query = 'SELECT * FROM pessoa';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         error_log("Resultados da pesquisa: " . print_r($result, true));
-        
+
         return $result;
     }
 
-    public function pesquisarPorId($id) {
+    public function pesquisarPorId($id)
+    {
         $query = 'SELECT * FROM pessoa WHERE id = :id';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
@@ -92,7 +100,8 @@ class PessoaController {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function pesquisarPorNome($nome) {
+    public function pesquisarPorNome($nome)
+    {
         $query = 'SELECT * FROM pessoa WHERE nome LIKE :nome';
         $stmt = $this->conn->prepare($query);
         $nome = "%" . $nome . "%";
@@ -102,4 +111,3 @@ class PessoaController {
     }
 }
 ?>
-

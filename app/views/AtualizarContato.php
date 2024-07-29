@@ -25,12 +25,14 @@ ob_end_flush();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="styler.css">
 </head>
+
 <body>
 
     <h1 class="titulo-painel">Atualizar Contato</h1>
@@ -38,8 +40,8 @@ ob_end_flush();
     <div class="formulario-cadastro">
         <form action="" method="post">
 
-             <label for="tipo">Tipo:</label>
-             <select name="tipo" id="tipo">
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="tipo">
                 <option value="celular">Celular</option>
                 <option value="email">Email</option>
             </select>
@@ -51,9 +53,10 @@ ob_end_flush();
             <input name="idPessoa" id="idPessoa" type="number">
 
             <button type="submit">Enviar</button>
-            
+
         </form>
     </div>
 
 </body>
+
 </html>

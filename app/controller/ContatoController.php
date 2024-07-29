@@ -3,14 +3,17 @@
 require_once '../config/Conexao.php';
 require_once '../models/Contato.php';
 
-class ContatoController {
+class ContatoController
+{
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = (new Conexao())->connect();
     }
 
-    public function inserir(Contato $contato) {
+    public function inserir(Contato $contato)
+    {
         $query = 'INSERT INTO contatos (tipo, descricao, pessoaid) VALUES (:tipo, :descricao, :pessoaid)';
         $stmt = $this->conn->prepare($query);
 
@@ -28,7 +31,8 @@ class ContatoController {
         return false;
     }
 
-    public function deletar($id) {
+    public function deletar($id)
+    {
         $query = 'DELETE FROM contatos WHERE id = :id';
         $stmt = $this->conn->prepare($query);
 
@@ -39,7 +43,8 @@ class ContatoController {
         }
     }
 
-    public function pesquisarTodos() {
+    public function pesquisarTodos()
+    {
         $query = 'SELECT * FROM contatos';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -47,16 +52,18 @@ class ContatoController {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function pesquisarPorIdPessoa($idPessoa) {
+    public function pesquisarPorIdPessoa($idPessoa)
+    {
         $query = 'SELECT * FROM contatos WHERE pessoaid = :idPessoa';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':idPessoa', $idPessoa);
         $stmt->execute();
-    
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function pesquisarPorId($id) {
+    public function pesquisarPorId($id)
+    {
         $query = 'SELECT * FROM contatos WHERE id = :id';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
@@ -65,7 +72,8 @@ class ContatoController {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function atualizar(Contato $contato) {
+    public function atualizar(Contato $contato)
+    {
         $query = 'UPDATE contatos SET tipo = :tipo, descricao = :descricao, pessoaid = :pessoaid WHERE id = :id';
         $stmt = $this->conn->prepare($query);
 

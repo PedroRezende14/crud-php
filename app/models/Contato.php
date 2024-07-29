@@ -1,42 +1,51 @@
 <?php
 
-class Contato {
+class Contato
+{
 
     private int $id;
     private int $idPessoa;
     private string $tipo;
-    private string $descricao; 
+    private string $descricao;
 
-    public function setId(int $id) {
+    public function setId(int $id)
+    {
         $this->id = $id;
     }
 
-    public function setIdPessoa(int $idPessoa) {
+    public function setIdPessoa(int $idPessoa)
+    {
         $this->idPessoa = $idPessoa;
     }
 
-    public function setTipo(string $tipo) {
+    public function setTipo(string $tipo)
+    {
         $this->tipo = $tipo;
     }
 
-    public function setDescricao(string $descricao) {
-        $this->descricao = $descricao; 
+    public function setDescricao(string $descricao)
+    {
+        $this->descricao = $descricao;
     }
 
-    public function getId(): int {
+    public function getId(): int
+    {
         return $this->id;
     }
 
-    public function getIdPessoa(): int {
+    public function getIdPessoa(): int
+    {
         return $this->idPessoa;
     }
 
-    public function getTipo(): string {
+    public function getTipo(): string
+    {
         return $this->tipo;
     }
-    
-    public function getDescricao(): string {
-        return $this->descricao; 
+
+    public function getDescricao(): string
+    {
+        return $this->descricao;
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-ob_start(); 
+ob_start();
 require_once '../models/Pessoa.php';
 require_once '../controller/PessoaController.php';
 require_once '../models/Contato.php';
@@ -33,10 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-     $pessoaController->deletar($id);
+    $pessoaController->deletar($id);
 
-     header('Location: ../views/Pesquisar.php');
+    header('Location: ../views/Pesquisar.php');
 }
 ob_end_flush();
 ?>
-

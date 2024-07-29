@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["nome"]) && isset($_POST["cpf"])) {
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         if ($id) {
-            
+
             $pessoa = new Pessoa();
             $pessoa->setNome($_POST["nome"]);
             $pessoa->setCpf($_POST["cpf"]);
@@ -28,12 +28,14 @@ ob_end_flush();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="styler.css">
 </head>
+
 <body>
 
     <h1 class="titulo-painel">Atualizar Pessoa</h1>
@@ -45,12 +47,13 @@ ob_end_flush();
             <input name="nome" id="nome" type="text">
 
             <label for="cpf">CPF:</label>
-            <input name="cpf" id="cpf" type="text">
+            <input name="cpf" id="cpf" type="text" required maxlength="11">
 
             <button type="submit">Enviar</button>
-            
+
         </form>
     </div>
 
 </body>
+
 </html>

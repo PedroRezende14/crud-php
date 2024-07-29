@@ -1,4 +1,4 @@
-        /* Estilo geral do corpo */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -10,9 +10,6 @@
             align-items: center;
             height: 100vh;
         }
-
-
-        
 
         .titulo-painel {
             font-size: 2em;
@@ -52,7 +49,8 @@
             font-weight: bold;
         }
 
-        .formulario-cadastro input, .formulario-cadastro select {
+        .formulario-cadastro input,
+        .formulario-cadastro select {
             width: calc(100% - 12px);
             padding: 8px;
             margin-bottom: 10px;
@@ -79,7 +77,6 @@
             margin-bottom: 10px;
         }
 
-        /* Estilo de cada contato */
         .contato {
             margin-bottom: 10px;
             border: 1px solid #ddd;
@@ -87,14 +84,13 @@
             border-radius: 4px;
         }
 
-        /* Estilo dos rótulos dentro do contato */
         .contato label {
             display: inline-block;
             margin-right: 10px;
         }
 
-        /* Estilo dos campos dentro do contato */
-        .contato input, .contato select {
+        .contato input,
+        .contato select {
             width: calc(50% - 14px);
             margin-right: 10px;
         }
@@ -115,9 +111,6 @@
             background-color: #0056b3;
         }
 
-        .menuprincipal h1{
+        .menuprincipal h1 {
             color: #0056b3;
         }
-
-
-

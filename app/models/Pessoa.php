@@ -1,32 +1,39 @@
 <?php
 
-class Pessoa {
+class Pessoa
+{
 
     private int $id;
-    private String $nome;
-    private String $cpf;
+    private string $nome;
+    private string $cpf;
 
-    public function setId(int $id): void {
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
-    public function setNome($string){
-        $this->nome=$string;
+    public function setNome($string)
+    {
+        $this->nome = $string;
     }
 
-    public function setCpf($string){
-        $this->cpf=$string;
+    public function setCpf($string)
+    {
+        $this->cpf = $string;
     }
 
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getNome(){
+    public function getNome()
+    {
         return $this->nome;
     }
 
-    public function getCpf(){
+    public function getCpf()
+    {
         return $this->cpf;
     }
 }

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa</title>
     <link rel="stylesheet" href="pesquisa.css">
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            updateInputField(); 
+        document.addEventListener("DOMContentLoaded", function () {
+            updateInputField();
         });
 
         function pesquisarPessoa() {
@@ -18,28 +19,28 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                const resultadosTabela = document.getElementById('resultados-tabela-pessoa');
-                resultadosTabela.innerHTML = '';
+                .then(response => response.json())
+                .then(data => {
+                    const resultadosTabela = document.getElementById('resultados-tabela-pessoa');
+                    resultadosTabela.innerHTML = '';
 
-                if (data.length > 0) {
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
                             <td>${item.id}</td>
                             <td>${item.nome}</td>
                             <td>${item.cpf}</td>
                             <td><a class="excluir-link" href="../controller/process_pessoa.php?acao=excluir&id=${item.id}">Excluir</a>
                             <a class="excluir-link" href="../views/Atualizar.php?acao=alterar&id=${item.id}">Alterar</a></td>
                         `;
-                        resultadosTabela.appendChild(row);
-                    });
-                } else {
-                    resultadosTabela.innerHTML = '<tr><td colspan="4">Nenhum resultado encontrado.</td></tr>';
-                }
-            })
-            .catch(error => console.error('Erro:', error));
+                            resultadosTabela.appendChild(row);
+                        });
+                    } else {
+                        resultadosTabela.innerHTML = '<tr><td colspan="4">Nenhum resultado encontrado.</td></tr>';
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
         }
 
         function updateInputField() {
@@ -50,15 +51,16 @@
                 inputDiv.innerHTML = '<input type="text" name="valor" placeholder="Digite o valor">';
             } else {
                 inputDiv.innerHTML = '';
-                pesquisarPessoa(); 
+                pesquisarPessoa();
             }
         }
     </script>
 </head>
+
 <body>
-    
+
     <div class="formulario-pesquisa-pessoa">
-    <h1 class="titulo-painel">Pesquisa Pessoas</h1>
+        <h1 class="titulo-painel">Pesquisa Pessoas</h1>
         <form id="form-pesquisa-pessoa" method="post" action="../controller/process_pessoa.php">
             <label for="tipo">Modo de pesquisa</label>
             <select name="tipo" id="tipo" onchange="updateInputField()">
@@ -67,7 +69,7 @@
                 <option value="nome">Nome</option>
             </select>
             <div id="input-div"></div>
-            <button type="button" onclick="pesquisarPessoa()">Pesquisar</button> 
+            <button type="button" onclick="pesquisarPessoa()">Pesquisar</button>
             <a href="../../index.php"><button type="button" class="botao-voltar">Voltar</button></a>
         </form>
     </div>
@@ -89,4 +91,5 @@
         </table>
     </div>
 </body>
+
 </html>

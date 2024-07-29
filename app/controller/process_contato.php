@@ -1,5 +1,5 @@
 <?php
-ob_start(); 
+ob_start();
 require_once '../config/Conexao.php';
 require_once '../models/Contato.php';
 require_once '../controller/ContatoController.php';

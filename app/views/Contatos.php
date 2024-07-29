@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa</title>
     <link rel="stylesheet" href="pesquisa.css">
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            updateInputField(); 
+        document.addEventListener("DOMContentLoaded", function () {
+            updateInputField();
         });
 
         function pesquisarPessoa() {
@@ -18,15 +19,15 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                const resultadosTabela = document.getElementById('resultados-tabela-pessoa');
-                resultadosTabela.innerHTML = '';
+                .then(response => response.json())
+                .then(data => {
+                    const resultadosTabela = document.getElementById('resultados-tabela-pessoa');
+                    resultadosTabela.innerHTML = '';
 
-                if (data.length > 0) {
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
                             <td>${item.id}</td>
                             <td>${item.pessoaid}</td>
                             <td>${item.tipo}</td>
@@ -36,13 +37,13 @@
                                 <a class="excluir-link" href="../views/AtualizarContato.php?acao=alterar&id=${item.id}">Alterar</a>
                             </td>
                         `;
-                        resultadosTabela.appendChild(row);
-                    });
-                } else {
-                    resultadosTabela.innerHTML = '<tr><td colspan="5">Nenhum resultado encontrado.</td></tr>';
-                }
-            })
-            .catch(error => console.error('Erro:', error));
+                            resultadosTabela.appendChild(row);
+                        });
+                    } else {
+                        resultadosTabela.innerHTML = '<tr><td colspan="5">Nenhum resultado encontrado.</td></tr>';
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
         }
 
         function updateInputField() {
@@ -53,15 +54,16 @@
                 inputDiv.innerHTML = '<input type="text" name="valor" placeholder="Digite o valor">';
             } else {
                 inputDiv.innerHTML = '';
-                pesquisarPessoa(); 
+                pesquisarPessoa();
             }
-        }   
+        }
 
     </script>
 </head>
+
 <body>
     <div class="formulario-pesquisa-pessoa">
-    <h1 class="titulo-painel">Pesquisa Contatos</h1>
+        <h1 class="titulo-painel">Pesquisa Contatos</h1>
         <form id="form-pesquisa-pessoa" method="post" action="../controller/process_contato.php">
             <label for="tipo">Modo de pesquisa</label>
             <select name="tipo" id="tipo" onchange="updateInputField()">
@@ -93,4 +95,5 @@
         </table>
     </div>
 </body>
+
 </html>

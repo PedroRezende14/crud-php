@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="styler.css">
 </head>
+
 <body>
 
     <h1 class="titulo-painel">Painel de cadastro</h1>
@@ -14,13 +16,13 @@
 
 
     <div class="formulario-cadastro">
-        <form action="../controller/Process.php" method="post">
+        <form id="cadastroForm" action="../controller/Process.php" method="post">
 
             <label for="nome">Nome:</label>
             <input name="nome" id="nome" type="text">
 
             <label for="cpf">CPF:</label>
-            <input name="cpf" id="cpf" type="text">
+            <input name="cpf" id="cpf" type="text" required>
 
             <div id="contatos">
                 <div class="contato" id="contato-1">
@@ -38,13 +40,19 @@
             <button type="button" onclick="addContato()">Adicionar contato</button>
             <button type="button" onclick="removeContato()">Remover contato</button>
 
-            <button type="submit">Enviar</button>
-            
+            <button type="submit" onclick="alerta()" >Enviar</button>
+
         </form>
     </div>
 
     <script>
         let contatoCount = 1;
+
+
+        function alerta(){
+            alert('Cadastro realizado.');
+                    return;
+        }
 
         function addContato() {
             contatoCount++;
@@ -71,6 +79,29 @@
                 contatoCount--;
             }
         }
+
+        document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+            const cpf = document.getElementById('cpf').value;
+            const contatos = document.querySelectorAll('.contato');
+
+            if (!/^\d{11}$/.test(cpf)) {
+                alert('Por favor, insira um cpf válido.');
+                event.preventDefault();
+                return;
+            }
+
+            for (let i = 0; i < contatos.length; i++) {
+                const tipo = contatos[i].querySelector('select').value;
+                const descricao = contatos[i].querySelector('input').value;
+
+                if (tipo === 'email' && !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(descricao)) {
+                    alert('Por favor, insira um email válido.');
+                    event.preventDefault();
+                    return;
+                }
+            }
+        });
     </script>
 </body>
+
 </html>
