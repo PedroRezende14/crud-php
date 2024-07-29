@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["acao"]) && $_GET["acao"]
     if ($id) {
         $contatoController->deletar($id);
     }
-    header('Location: ../views/Contatos.php');
+    header('Location: ../views/PesquisarContatos.php');
 }
 ob_end_flush();
 ?>

@@ -16,8 +16,8 @@ require_once __DIR__ . '/vendor/autoload.php';
     <div class ="menuprincipal">
         <h1>Bem-vindo ao Sistema</h1>
         <button onclick="window.location.href='app/views/Cadastro.php'">Cadastrar</button>
-        <button onclick="window.location.href='app/views/Pesquisar.php'">Pesquisar Pessoas</button>
-        <button onclick="window.location.href='app/views/Contatos.php'">Pesquisar Contatos</button>
+        <button onclick="window.location.href='app/views/PesquisarPessoa.php'">Pesquisar Pessoas</button>
+        <button onclick="window.location.href='app/views/PesquisarContatos.php'">Pesquisar Contatos</button>
     </div>
 </body>
 </html>

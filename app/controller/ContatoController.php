@@ -74,17 +74,15 @@ class ContatoController
 
     public function atualizar(Contato $contato)
     {
-        $query = 'UPDATE contatos SET tipo = :tipo, descricao = :descricao, pessoaid = :pessoaid WHERE id = :id';
+        $query = 'UPDATE contatos SET tipo = :tipo, descricao = :descricao WHERE id = :id';
         $stmt = $this->conn->prepare($query);
 
         $tipo = $contato->getTipo();
         $descricao = $contato->getDescricao();
-        $pessoaid = $contato->getIdPessoa();
         $id = $contato->getId();
 
         $stmt->bindParam(':tipo', $tipo);
         $stmt->bindParam(':descricao', $descricao);
-        $stmt->bindParam(':pessoaid', $pessoaid);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {

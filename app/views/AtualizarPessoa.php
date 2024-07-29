@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pessoaController = new PessoaController();
             $pessoaController->atualizar($pessoa);
 
-            header('Location: Pesquisar.php');
+            header('Location: PesquisarPessoa.php');
         }
     }
 }
@@ -34,6 +34,17 @@ ob_end_flush();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="styler.css">
+    <script>
+        function validarFormulario() {
+            var cpf = document.getElementById('cpf').value;
+            cpf = cpf.replace(/[^\d]+/g, '');
+            if (cpf.length !== 11) {
+                alert('Por favor, insira um CPF válido com 11 dígitos.');
+                return false;
+            }
+            return true; 
+        }
+    </script>
 </head>
 
 <body>
@@ -41,13 +52,13 @@ ob_end_flush();
     <h1 class="titulo-painel">Atualizar Pessoa</h1>
 
     <div class="formulario-cadastro">
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="return validarFormulario()">
 
             <label for="nome">Nome:</label>
-            <input name="nome" id="nome" type="text">
+            <input name="nome" id="nome" type="text" required>
 
             <label for="cpf">CPF:</label>
-            <input name="cpf" id="cpf" type="text" required maxlength="11">
+            <input name="cpf" id="cpf" type="text" required >
 
             <button type="submit">Enviar</button>
 

@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     $pessoaController->deletar($id);
 
-    header('Location: ../views/Pesquisar.php');
+    header('Location: ../views/PesquisarPessoa.php');
 }
 ob_end_flush();
 ?>

@@ -32,7 +32,7 @@
                             <td>${item.nome}</td>
                             <td>${item.cpf}</td>
                             <td><a class="excluir-link" href="../controller/process_pessoa.php?acao=excluir&id=${item.id}">Excluir</a>
-                            <a class="excluir-link" href="../views/Atualizar.php?acao=alterar&id=${item.id}">Alterar</a></td>
+                            <a class="excluir-link" href="../views/AtualizarPessoa.php?acao=alterar&id=${item.id}">Alterar</a></td>
                         `;
                             resultadosTabela.appendChild(row);
                         });

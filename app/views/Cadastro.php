@@ -19,7 +19,7 @@
         <form id="cadastroForm" action="../controller/Process.php" method="post">
 
             <label for="nome">Nome:</label>
-            <input name="nome" id="nome" type="text">
+            <input name="nome" id="nome" type="text" required>
 
             <label for="cpf">CPF:</label>
             <input name="cpf" id="cpf" type="text" required>
@@ -40,19 +40,13 @@
             <button type="button" onclick="addContato()">Adicionar contato</button>
             <button type="button" onclick="removeContato()">Remover contato</button>
 
-            <button type="submit" onclick="alerta()" >Enviar</button>
+            <button type="submit">Enviar</button>
 
         </form>
     </div>
 
     <script>
         let contatoCount = 1;
-
-
-        function alerta(){
-            alert('Cadastro realizado.');
-                    return;
-        }
 
         function addContato() {
             contatoCount++;
@@ -85,7 +79,7 @@
             const contatos = document.querySelectorAll('.contato');
 
             if (!/^\d{11}$/.test(cpf)) {
-                alert('Por favor, insira um cpf válido.');
+                alert('Por favor, insira um CPF válido.');
                 event.preventDefault();
                 return;
             }
@@ -96,6 +90,12 @@
 
                 if (tipo === 'email' && !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(descricao)) {
                     alert('Por favor, insira um email válido.');
+                    event.preventDefault();
+                    return;
+                }
+
+                if (tipo === 'celular' && !/^\d{10,11}$/.test(descricao)) {
+                    alert('Por favor, insira um número de telefone válido.');
                     event.preventDefault();
                     return;
                 }
