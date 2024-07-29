@@ -1,0 +1,123 @@
+        /* Estilo geral do corpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        
+
+        .titulo-painel {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #007BFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .botao-voltar {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .botao-voltar:hover {
+            background-color: #0056b3;
+        }
+
+        .formulario-cadastro {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .formulario-cadastro label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .formulario-cadastro input, .formulario-cadastro select {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .formulario-cadastro button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .formulario-cadastro button:hover {
+            background-color: #0056b3;
+        }
+
+        #contatos {
+            margin-bottom: 10px;
+        }
+
+        /* Estilo de cada contato */
+        .contato {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Estilo dos rótulos dentro do contato */
+        .contato label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Estilo dos campos dentro do contato */
+        .contato input, .contato select {
+            width: calc(50% - 14px);
+            margin-right: 10px;
+        }
+
+
+        .menuprincipal button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .menuprincipal button:hover {
+            background-color: #0056b3;
+        }
+
+        .menuprincipal h1{
+            color: #0056b3;
+        }
+
+
+

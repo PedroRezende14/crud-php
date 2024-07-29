@@ -1,13 +1,13 @@
 <?php
 
-class pessoa {
+class Pessoa {
 
     private int $id;
     private String $nome;
     private String $cpf;
 
-    public function setId($int){
-       $this->id=$int;
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
     public function setNome($string){
